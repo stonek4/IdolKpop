@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>IdolKpop</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Find Your Kpop Idol">
 
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
-    <title>IdolKpop</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <center>
+      <nav class = "navigation_bar">
+        <div class = "navigation_button" id = "company">COMPANY</div>
+        <div class = "navigation_button" id = "act">ACT</div>
+        <div class = "navigation_button" id = "individual">IDOL</div>
+        <div class = "navigation_button" id = "about">ABOUT</div>
+      </nav>
+    </center>
     <div class = "container" id = "outer_container">
       <div class = "row vertical-align">
         <div class = "col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
           <center>
-            <div data-spy = "affix" class = "navigation_bar">
-              <div class = "navigation_button" id = "company">COMPANY</div>
-              <div class = "navigation_button" id = "act">ACT</div>
-              <div class = "navigation_button" id = "individual">IDOL</div>
-              <div class = "navigation_button" id = "about">ABOUT</div>
-            </div>
             <div class = "search_section">
               <form role = "form" class="search_form">
                 <div class = "form-group">
                   <label for = "search" class = "label-align" id = "search_label">Search By Company</label>
-                  <input type = "search" class = "form-control" autofocus="autofocus" id = "search_box" placeholder="🔍 Company Name">
+                  <input type = "search" class = "form-control" autofocus="autofocus" id = "search_box" placeholder="🔍 Company Name" data-spy = "affix" data-offset-top = "50">
                 </div>
                 <button type="submit" class="btn btn-md btn-default submit-align">Search!</button>
               </form>
@@ -36,6 +39,8 @@
         </div>
         <div class = "col-lg-12">
           <center>
+            <div class = "about_section">
+            </div>
             <div class="floating-box">Floating box</div>
             <div class="floating-box">Floating box</div>
             <div class="floating-box">Floating box</div>
@@ -50,5 +55,16 @@
     </div>
   </body>
 
-	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+    $(".about_section").hide();
+    $(".floating-box").click(function(){
+      if ($(".about_section").css('display') === 'none')
+      {
+        $(".about_section").show();
+      }
+      $('html, body').animate({
+        scrollTop: $(".about_section").offset().top-75
+      }, 500);
+    });
+  </script>
 </html>
