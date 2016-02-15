@@ -29,6 +29,13 @@ html, body {
 	color:black;
 	padding-top:10px;
 	font-size:1em;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
 }
 .navigation_button:hover{
 	background-color:#f2f2f2;
@@ -37,6 +44,11 @@ html, body {
 	border-bottom-width:5px;
 	box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.70);
 	font-size:1.075em;
+}
+.navigation_button:active{
+	background-color:#666666;
+	font-size:1em;
+	box-shadow: none;
 }
 .search_section{
 	width:100%;
@@ -110,7 +122,6 @@ html, body {
     height: 400px;
 		margin: 10px;
 		margin-top:20px;
-		background-color:#white;
 		z-index:1;
 }
 .floating_box:hover {
