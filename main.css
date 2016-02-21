@@ -117,6 +117,7 @@ html, body {
 	margin:0 auto;
 }
 .floating_box {
+		position:relative;
     display: inline-block;
     width: 300px;
     height: 400px;
@@ -128,4 +129,12 @@ html, body {
 	background-color:#f2f2f2;
 	box-sizing:border-box;
 	border: 3px solid #0099ff;
+}
+.box_bottom{
+	width:100%;
+	height:100px;
+	opacity:10%;
+	background-color:white;
+	bottom:0;
+	position:absolute;
 }

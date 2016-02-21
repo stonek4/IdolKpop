@@ -45,14 +45,41 @@
               <div class = "information">
               </div>
             </div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
-            <div class="floating_box">Idol</div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
+            <div class="floating_box">
+              <div class="box_bottom">
+                Title
+              </div>
+            </div>
           </center>
         </div>
       </div>
@@ -60,13 +87,22 @@
   </body>
 
 	<script>
-    $(".about_section").hide();
+    $(".about_section").hide()
     $(".floating_box").click(function(){
       if ($(".about_section").css('display') === 'none')
       {
-        $(".about_section").show();
+        $(".about_section").show()
       }
-      $("html, body").animate({ scrollTop: 80 }, 500);
+      $("html, body").animate({ scrollTop: 80 }, 500)
+    });
+    $(".navigation_button").click(function(){
+      var updated_text = $(this).text()[0] + $(this).text().slice(1).toLowerCase()
+      label_text = "Search By " + updated_text
+      placeholder_text = "🔍 "+ updated_text + " Name"
+      $('#search_label').text(label_text)
+      $('#search_box').attr("placeholder",placeholder_text)
+      $('.about_section').slideUp();
+      $("html, body").animate({ scrollTop: 0 }, 500)
     });
   </script>
 </html>
