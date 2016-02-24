@@ -96,6 +96,7 @@
       $("html, body").animate({ scrollTop: 80 }, 500)
     });
     $(".navigation_button").click(function(){
+      $('#search_box').focus()
       var updated_text = $(this).text()[0] + $(this).text().slice(1).toLowerCase()
       label_text = "Search By " + updated_text
       placeholder_text = "🔍 "+ updated_text + " Name"
