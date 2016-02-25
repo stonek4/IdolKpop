@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS tv_shows(
 CREATE TABLE IF NOT EXISTS partners(
     name VARCHAR(255) NOT NULL,
     partner_id INT(11) NOT NULL AUTO_INCREMENT,
+    label_id,
     PRIMARY KEY(partner_id)
 );
 CREATE TABLE IF NOT EXISTS founders(
@@ -51,6 +52,50 @@ CREATE TABLE IF NOT EXISTS founders(
     founder_id INT(11) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY(founder_id)
 );
+CREATE TABLE IF NOT EXISTS owner(
+    name VARCHAR(255) NOT NULL,
+    birthday DATE,
+    death DATE,
+    owner_id INT(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(owner_id)
+);
+CREATE TABLE IF NOT EXISTS company_types(
+    name VARCHAR(255) NOT NULL,
+    company_type_id INT(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(company_type_id)
+);
+CREATE TABLE IF NOT EXISTS blood_types(
+    name VARCHAR(255) NOT NULL,
+    blood_type_id INT(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(blood_type_id)
+);
 CREATE TABLE IF NOT EXISTS labels(
-    
+    name VARCHAR(255) NOT NULL,
+    founded DATE,
+    ended DATE,
+    owner VARCHAR(255),
+    parent_label
+    num_acts INT(11),
+    official_site VARCHAR(255),
+    youtube_site VARCHAR(255),
+    instagram_site VARCHAR(255),
+    twitter_site VARCHAR(255),
+    daum_site VARCHAR(255),
+    naver_site VARCHAR(255),
+    viki_site VARCHAR(255),
+    audition_site VARCHAR(255),
+    wikipedia_site VARCHAR(255),
+    synopsis TEXT,
+    street VARCHAR(255),
+    city VARCHAR(255),
+    country VARCHAR(255),
+    zip VARCHAR(255),
+    slogan TEXT,
+    rss_feed VARCHAR(255),
+    stock_symbol VARCHAR(255),
+    revenue INT(11),
+    net_income INT(11),
+    label_id INT(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(label_id)
+    company_type_id
 );
