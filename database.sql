@@ -1,228 +1,420 @@
-CREATE DATABASE IF NOT EXISTS idolkpop;
-CREATE TABLE IF NOT EXISTS videos(
-    name VARCHAR(255),
-    description TEXT,
-    link VARCHAR(255),
-    video_id INT(11) NOT NULL AUTO_INCREMENT,
-    label_id INT(11),
-    act_id INT(11),
-    idol_id INT(11),
-    FOREIGN KEY(label_id) REFERENCES labels(label_id),
-    FOREIGN KEY(act_id) REFERENCES acts(act_id),
-    FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
-    PRIMARY KEY(video_id)
-);
-CREATE TABLE IF NOT EXISTS photos(
-    name VARCHAR(255),
-    description TEXT,
-    link VARCHAR(255),
-    photo_id INT(11) NOT NULL AUTO_INCREMENT,
-    label_id INT(11),
-    act_id INT(11),
-    idol_id INT(11),
-    FOREIGN KEY(label_id) REFERENCES labels(label_id),
-    FOREIGN KEY(act_id) REFERENCES acts(act_id),
-    FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
-    PRIMARY KEY(photo_id)
-);
 CREATE TABLE IF NOT EXISTS genres(
-    name VARCHAR(255) UNIQUE NOT NULL,
-    genre_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(genre_id)
+  name VARCHAR(255) UNIQUE NOT NULL,
+  genre_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(genre_id)
 );
 CREATE TABLE IF NOT EXISTS projects(
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    start_date DATE,
-    end_date DATE,
-    project_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(project_id)
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  start_date DATE,
+  end_date DATE,
+  project_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(project_id)
 );
 CREATE TABLE IF NOT EXISTS movies(
-    name VARCHAR(255) NOT NULL,
-    release_date DATE,
-    movie_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(movie_id)
+  name VARCHAR(255) NOT NULL,
+  release_date DATE,
+  movie_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(movie_id)
 );
 CREATE TABLE IF NOT EXISTS tv_shows(
-    name VARCHAR(255) NOT NULL,
-    start_date DATE,
-    end_date DATE,
-    tv_show_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(tv_show_id)
+  name VARCHAR(255) NOT NULL,
+  start_date DATE,
+  end_date DATE,
+  tv_show_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(tv_show_id)
 );
 CREATE TABLE IF NOT EXISTS albums(
-    name VARCHAR(255) NOT NULL,
-    release_date DATE,
-    chart_place INT(11),
-    copies_sold INT(11),
-    num_songs INT(11),
-    album_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(album_id)
+  name VARCHAR(255) NOT NULL,
+  release_date DATE,
+  chart_place INT(11),
+  copies_sold INT(11),
+  num_songs INT(11),
+  album_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(album_id)
 );
 CREATE TABLE IF NOT EXISTS songs(
-    name VARCHAR(255) NOT NULL,
-    release_date DATE,
-    track_num INT(11),
-    chart_place INT(11),
-    copies_sold INT(11),
-    album_id INT(11),
-    song_id INT(11) NOT NULL AUTO_INCREMENT,
-    FOREIGN KEY(album_id) REFERENCES albums(album_id),
-    PRIMARY KEY(song_id)
+  name VARCHAR(255) NOT NULL,
+  release_date DATE,
+  track_num INT(11),
+  chart_place INT(11),
+  copies_sold INT(11),
+  album_id INT(11),
+  song_id INT(11) NOT NULL AUTO_INCREMENT,
+  FOREIGN KEY(album_id) REFERENCES albums(album_id),
+  PRIMARY KEY(song_id)
 );
 CREATE TABLE IF NOT EXISTS partners(
-    name VARCHAR(255) NOT NULL,
-    partner_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(partner_id)
+  name VARCHAR(255) NOT NULL,
+  partner_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(partner_id)
 );
 CREATE TABLE IF NOT EXISTS founders(
-    name VARCHAR(255) NOT NULL,
-    birthday DATE,
-    death DATE,
-    founder_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(founder_id)
+  name VARCHAR(255) NOT NULL,
+  birthday DATE,
+  death DATE,
+  founder_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(founder_id)
 );
-CREATE TABLE IF NOT EXISTS owner(
-    name VARCHAR(255) NOT NULL,
-    birthday DATE,
-    death DATE,
-    owner_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(owner_id)
+CREATE TABLE IF NOT EXISTS owners(
+  name VARCHAR(255) NOT NULL,
+  birthday DATE,
+  death DATE,
+  owner_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(owner_id)
 );
 CREATE TABLE IF NOT EXISTS company_types(
-    name VARCHAR(255) NOT NULL,
-    company_type_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(company_type_id)
+  name VARCHAR(255) NOT NULL,
+  company_type_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(company_type_id)
 );
 CREATE TABLE IF NOT EXISTS gender_types(
-    name VARCHAR(255) NOT NULL,
-    gender_type_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(gender_type_id)
+  name VARCHAR(255) NOT NULL,
+  gender_type_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(gender_type_id)
 );
 CREATE TABLE IF NOT EXISTS blood_types(
-    name VARCHAR(255) NOT NULL,
-    blood_type_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(blood_type_id)
+  name VARCHAR(255) NOT NULL,
+  blood_type_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(blood_type_id)
 );
 CREATE TABLE IF NOT EXISTS managers(
-    name VARCHAR(255) NOT NULL,
-    manager_id INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY(manager_id)
+  name VARCHAR(255) NOT NULL,
+  manager_id INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(manager_id)
 );
 CREATE TABLE IF NOT EXISTS labels(
-    name VARCHAR(255) NOT NULL,
-    founded DATE,
-    ended DATE,
-    owner VARCHAR(255),
-    num_acts INT(11),
-    official_site VARCHAR(255),
-    youtube_site VARCHAR(255),
-    instagram_site VARCHAR(255),
-    twitter_site VARCHAR(255),
-    daum_site VARCHAR(255),
-    naver_site VARCHAR(255),
-    viki_site VARCHAR(255),
-    audition_site VARCHAR(255),
-    wikipedia_site VARCHAR(255),
-    synopsis TEXT,
-    street VARCHAR(255),
-    city VARCHAR(255),
-    country VARCHAR(255),
-    zip VARCHAR(255),
-    slogan TEXT,
-    rss_feed VARCHAR(255),
-    stock_symbol VARCHAR(255),
-    revenue INT(11),
-    net_income INT(11),
-    label_id INT(11) NOT NULL AUTO_INCREMENT,
-    company_type_id INT(11),
-    FOREIGN KEY company_type_id REFERENCES company_types(company_type_id),
-    PRIMARY KEY(label_id)
+  name VARCHAR(255) NOT NULL,
+  founded DATE,
+  ended DATE,
+  OWNER VARCHAR(255),
+  num_acts INT(11),
+  official_site VARCHAR(255),
+  youtube_site VARCHAR(255),
+  instagram_site VARCHAR(255),
+  twitter_site VARCHAR(255),
+  daum_site VARCHAR(255),
+  naver_site VARCHAR(255),
+  viki_site VARCHAR(255),
+  facebook_site VARCHAR(255),
+  weibo_site VARCHAR(255),
+  cyworld_site VARCHAR(255),
+  audition_site VARCHAR(255),
+  wikipedia_site VARCHAR(255),
+  synopsis TEXT,
+  street VARCHAR(255),
+  city VARCHAR(255),
+  country VARCHAR(255),
+  zip VARCHAR(255),
+  slogan TEXT,
+  rss_feed VARCHAR(255),
+  stock_symbol VARCHAR(255),
+  revenue INT(11),
+  net_income INT(11),
+  label_id INT(11) NOT NULL AUTO_INCREMENT,
+  company_type_id INT(11),
+  FOREIGN KEY(company_type_id) REFERENCES company_types(company_type_id),
+  PRIMARY KEY(label_id)
 );
 CREATE TABLE IF NOT EXISTS acts(
-    name VARCHAR(255) NOT NULL,
-    nickname VARCHAR(255),
-    korean_name VARCHAR(255),
-    fandom_name VARCHAR(255),
-    official_color VARCHAR(255),
-    founded DATE,
-    disbanded DATE,
-    num_members INT(11),
-    official_site VARCHAR(255),
-    youtube_site VARCHAR(255),
-    instagram_site VARCHAR(255),
-    twitter_site VARCHAR(255),
-    daum_site VARCHAR(255),
-    naver_site VARCHAR(255),
-    viki_site VARCHAR(255),
-    wikipedia_site VARCHAR(255),
-    official_fan_site VARCHAR(255),
-    synopsis TEXT,
-    rss_feed VARCHAR(255),
-    gender_id INT(11),
-    act_id INT(11) NOT NULL AUTO_INCREMENT,
-    FOREIGN KEY gender_id REFERENCES gender_types(gender_type_id),
-    PRIMARY KEY(act_id)
+  name VARCHAR(255) NOT NULL,
+  nickname VARCHAR(255),
+  korean_name VARCHAR(255),
+  fandom_name VARCHAR(255),
+  official_color VARCHAR(255),
+  founded DATE,
+  disbanded DATE,
+  num_members INT(11),
+  official_site VARCHAR(255),
+  youtube_site VARCHAR(255),
+  instagram_site VARCHAR(255),
+  twitter_site VARCHAR(255),
+  daum_site VARCHAR(255),
+  naver_site VARCHAR(255),
+  viki_site VARCHAR(255),
+  facebook_site VARCHAR(255),
+  weibo_site VARCHAR(255),
+  cyworld_site VARCHAR(255),
+  wikipedia_site VARCHAR(255),
+  official_fan_site VARCHAR(255),
+  synopsis TEXT,
+  rss_feed VARCHAR(255),
+  gender_id INT(11),
+  act_id INT(11) NOT NULL AUTO_INCREMENT,
+  FOREIGN KEY(gender_id) REFERENCES gender_types(gender_type_id),
+  PRIMARY KEY(act_id)
 );
 CREATE TABLE IF NOT EXISTS idols(
-    name VARCHAR(255) NOT NULL,
-    stage_name VARCHAR(255),
-    korean_name VARCHAR(255),
-    birthday DATE,
-    birth_city VARCHAR(255),
-    birth_country VARCHAR(255),
-    death DATE,
-    group_role VARCHAR(255),
-    official_site VARCHAR(255),
-    youtube_site VARCHAR(255),
-    instagram_site VARCHAR(255),
-    twitter_site VARCHAR(255),
-    daum_site VARCHAR(255),
-    naver_site VARCHAR(255),
-    viki_site VARCHAR(255),
-    wikipedia_site VARCHAR(255),
-    official_fan_site VARCHAR(255),
-    synopsis TEXT,
-    rss_feed VARCHAR(255),
-    gender_id INT(11),
-    idol_id INT(11) NOT NULL AUTO_INCREMENT,
-    FOREIGN KEY gender_id REFERENCES gender_types(gender_type_id),
-    PRIMARY KEY(idol_id)
+  name VARCHAR(255) NOT NULL,
+  stage_name VARCHAR(255),
+  korean_name VARCHAR(255),
+  birthday DATE,
+  birth_city VARCHAR(255),
+  birth_country VARCHAR(255),
+  death DATE,
+  group_role VARCHAR(255),
+  official_site VARCHAR(255),
+  youtube_site VARCHAR(255),
+  instagram_site VARCHAR(255),
+  twitter_site VARCHAR(255),
+  daum_site VARCHAR(255),
+  naver_site VARCHAR(255),
+  viki_site VARCHAR(255),
+  facebook_site VARCHAR(255),
+  weibo_site VARCHAR(255),
+  cyworld_site VARCHAR(255),
+  wikipedia_site VARCHAR(255),
+  official_fan_site VARCHAR(255),
+  synopsis TEXT,
+  rss_feed VARCHAR(255),
+  gender_id INT(11),
+  blood_id INT(11),
+  idol_id INT(11) NOT NULL AUTO_INCREMENT,
+  FOREIGN KEY(gender_id) REFERENCES gender_types(gender_type_id),
+  FOREIGN KEY(blood_id) REFERENCES blood_types(blood_type_id),
+  PRIMARY KEY(idol_id)
+);
+CREATE TABLE IF NOT EXISTS videos(
+  name VARCHAR(255),
+  description TEXT,
+  link VARCHAR(255),
+  video_id INT(11) NOT NULL AUTO_INCREMENT,
+  label_id INT(11),
+  act_id INT(11),
+  idol_id INT(11),
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  PRIMARY KEY(video_id)
+);
+CREATE TABLE IF NOT EXISTS photos(
+  name VARCHAR(255),
+  description TEXT,
+  link VARCHAR(255),
+  photo_id INT(11) NOT NULL AUTO_INCREMENT,
+  label_id INT(11),
+  act_id INT(11),
+  idol_id INT(11),
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  PRIMARY KEY(photo_id)
+);
+CREATE TABLE IF NOT EXISTS music_shows(
+  name VARCHAR(255) NOT NULL,
+  episode INT(11),
+  show_date DATE,
+  winning_act INT(11),
+  winning_idol INT(11),
+  tv_show_id INT(11),
+  music_show_id INT(11) NOT NULL AUTO_INCREMENT,
+  FOREIGN KEY(winning_act) REFERENCES acts(act_id),
+  FOREIGN KEY(winning_idol) REFERENCES idols(idol_id),
+  FOREIGN KEY(tv_show_id) REFERENCES tv_shows(tv_show_id),
+  PRIMARY KEY(music_show_id, name, episode)
 );
 CREATE TABLE IF NOT EXISTS acts_idols(
-    idol_id INT(11) NOT NULL,
-    act_id INT(11) NOT NULL,
-    joined DATE NOT NULL,
-    left DATE,
-    FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
-    FOREIGN KEY(act_id) REFERENCES acts(act_id),
-    CONSTRAINT pk_acts_idols PRIMARY KEY(idol_id, act_id, joined)
+  idol_id INT(11) NOT NULL,
+  act_id INT(11) NOT NULL,
+  joined DATE NOT NULL,
+  separated DATE,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  CONSTRAINT pk_acts_idols PRIMARY KEY(idol_id, act_id, joined)
 );
 CREATE TABLE IF NOT EXISTS acts_acts(
-    sub_act_id INT(11) NOT NULL,
-    parent_act_id INT(11) NOT NULL,
-    joined DATE NOT NULL,
-    left DATE,
-    FOREIGN KEY(sub_act_id) REFERENCES acts(act_id),
-    FOREIGN KEY(parent_act_id) REFERENCES acts(act_id),
-    CONSTRAINT pk_acts_acts PRIMARY KEY(parent_act_id, sub_act_id, joined)
+  sub_act_id INT(11) NOT NULL,
+  parent_act_id INT(11) NOT NULL,
+  joined DATE NOT NULL,
+  separated DATE,
+  FOREIGN KEY(sub_act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(parent_act_id) REFERENCES acts(act_id),
+  CONSTRAINT pk_acts_acts PRIMARY KEY(
+    parent_act_id,
+    sub_act_id,
+    joined
+  )
 );
 CREATE TABLE IF NOT EXISTS labels_acts(
-    act_id INT(11) NOT NULL,
-    label_id INT(11) NOT NULL,
-    joined DATE NOT NULL,
-    left DATE,
-    FOREIGN KEY(act_id) REFERENCES acts(act_id),
-    FOREIGN KEY(label_id) REFERENCES labels(label_id),
-    CONSTRAINT pk_labels_acts PRIMARY KEY(act_id, label_id, joined)
+  act_id INT(11) NOT NULL,
+  label_id INT(11) NOT NULL,
+  joined DATE NOT NULL,
+  separated DATE,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  CONSTRAINT pk_labels_acts PRIMARY KEY(act_id, label_id, joined)
 );
 CREATE TABLE IF NOT EXISTS labels_labels(
-    sub_label_id INT(11) NOT NULL,
-    parent_label_id INT(11) NOT NULL,
-    joined DATE NOT NULL,
-    left DATE,
-    FOREIGN KEY(sub_label_id) REFERENCES labels(label_id),
-    FOREIGN KEY(parent_label_id) REFERENCES labels(label_id),
-    CONSTRAINT pk_labels_labels PRIMARY KEY(parent_label_id, sub_label_id, joined)
+  sub_label_id INT(11) NOT NULL,
+  parent_label_id INT(11) NOT NULL,
+  joined DATE NOT NULL,
+  separated DATE,
+  FOREIGN KEY(sub_label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(parent_label_id) REFERENCES labels(label_id),
+  CONSTRAINT pk_labels_labels PRIMARY KEY(
+    parent_label_id,
+    sub_label_id,
+    joined
+  )
+);
+CREATE TABLE IF NOT EXISTS idols_songs(
+  idol_id INT(11) NOT NULL,
+  song_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(song_id) REFERENCES songs(song_id),
+  CONSTRAINT pk_songs_idols PRIMARY KEY(song_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS idols_albums(
+  idol_id INT(11) NOT NULL,
+  album_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(album_id) REFERENCES albums(album_id),
+  CONSTRAINT pk_albums_idols PRIMARY KEY(album_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS idols_partners(
+  idol_id INT(11) NOT NULL,
+  partner_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(partner_id) REFERENCES partners(partner_id),
+  CONSTRAINT pk_partners_idols PRIMARY KEY(partner_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS idols_tv_shows(
+  idol_id INT(11) NOT NULL,
+  tv_show_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(tv_show_id) REFERENCES tv_shows(tv_show_id),
+  CONSTRAINT pk_tv_shows_idols PRIMARY KEY(tv_show_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS idols_movies(
+  idol_id INT(11) NOT NULL,
+  movie_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(movie_id) REFERENCES movies(movie_id),
+  CONSTRAINT pk_movies_idols PRIMARY KEY(movie_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS idols_projects(
+  idol_id INT(11) NOT NULL,
+  project_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(project_id) REFERENCES projects(project_id),
+  CONSTRAINT pk_projects_idols PRIMARY KEY(project_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS idols_genres(
+  idol_id INT(11) NOT NULL,
+  genre_id INT(11) NOT NULL,
+  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
+  FOREIGN KEY(genre_id) REFERENCES genres(genre_id),
+  CONSTRAINT pk_genres_idols PRIMARY KEY(genre_id, idol_id)
+);
+CREATE TABLE IF NOT EXISTS acts_songs(
+  act_id INT(11) NOT NULL,
+  song_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(song_id) REFERENCES songs(song_id),
+  CONSTRAINT pk_songs_acts PRIMARY KEY(song_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_albums(
+  act_id INT(11) NOT NULL,
+  album_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(album_id) REFERENCES albums(album_id),
+  CONSTRAINT pk_albums_acts PRIMARY KEY(album_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_partners(
+  act_id INT(11) NOT NULL,
+  partner_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(partner_id) REFERENCES partners(partner_id),
+  CONSTRAINT pk_partners_acts PRIMARY KEY(partner_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_tv_shows(
+  act_id INT(11) NOT NULL,
+  tv_show_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(tv_show_id) REFERENCES tv_shows(tv_show_id),
+  CONSTRAINT pk_tv_shows_acts PRIMARY KEY(tv_show_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_movies(
+  act_id INT(11) NOT NULL,
+  movie_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(movie_id) REFERENCES movies(movie_id),
+  CONSTRAINT pk_movies_acts PRIMARY KEY(movie_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_projects(
+  act_id INT(11) NOT NULL,
+  project_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(project_id) REFERENCES projects(project_id),
+  CONSTRAINT pk_projects_acts PRIMARY KEY(project_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_genres(
+  act_id INT(11) NOT NULL,
+  genre_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(genre_id) REFERENCES genres(genre_id),
+  CONSTRAINT pk_genres_acts PRIMARY KEY(genre_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS acts_managers(
+  act_id INT(11) NOT NULL,
+  manager_id INT(11) NOT NULL,
+  FOREIGN KEY(act_id) REFERENCES acts(act_id),
+  FOREIGN KEY(manager_id) REFERENCES managers(manager_id),
+  CONSTRAINT pk_managers_acts PRIMARY KEY(manager_id, act_id)
+);
+CREATE TABLE IF NOT EXISTS labels_songs(
+  label_id INT(11) NOT NULL,
+  song_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(song_id) REFERENCES songs(song_id),
+  CONSTRAINT pk_songs_labels PRIMARY KEY(song_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_albums(
+  label_id INT(11) NOT NULL,
+  album_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(album_id) REFERENCES albums(album_id),
+  CONSTRAINT pk_albums_labels PRIMARY KEY(album_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_partners(
+  label_id INT(11) NOT NULL,
+  partner_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(partner_id) REFERENCES partners(partner_id),
+  CONSTRAINT pk_partners_labels PRIMARY KEY(partner_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_tv_shows(
+  label_id INT(11) NOT NULL,
+  tv_show_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(tv_show_id) REFERENCES tv_shows(tv_show_id),
+  CONSTRAINT pk_tv_shows_labels PRIMARY KEY(tv_show_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_movies(
+  label_id INT(11) NOT NULL,
+  movie_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(movie_id) REFERENCES movies(movie_id),
+  CONSTRAINT pk_movies_labels PRIMARY KEY(movie_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_projects(
+  label_id INT(11) NOT NULL,
+  project_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(project_id) REFERENCES projects(project_id),
+  CONSTRAINT pk_projects_labels PRIMARY KEY(project_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_founders(
+  label_id INT(11) NOT NULL,
+  founder_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(founder_id) REFERENCES founders(founder_id),
+  CONSTRAINT pk_founders_labels PRIMARY KEY(founder_id, label_id)
+);
+CREATE TABLE IF NOT EXISTS labels_owners(
+  label_id INT(11) NOT NULL,
+  owner_id INT(11) NOT NULL,
+  FOREIGN KEY(label_id) REFERENCES labels(label_id),
+  FOREIGN KEY(owner_id) REFERENCES owners(owner_id),
+  CONSTRAINT pk_owners_labels PRIMARY KEY(owner_id, label_id)
 );
