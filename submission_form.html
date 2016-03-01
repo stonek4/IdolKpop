@@ -8,7 +8,7 @@
     <meta name="description" content="Find Your Kpop Idol">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="submission.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -16,15 +16,42 @@
   <body>
     <center>
       <nav class = "navigation_bar">
-        <div class = "navigation_button" id = "company">BACK TO SEARCH</div>
+        <div class = "navigation_button" id = "company">BACK TO IDOLKPOP SEARCH</div>
       </nav>
     </center>
     <div class = "container" id = "outer_container">
       <div class = "row vertical-align">
         <div class = "col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-          <center>
-
-          </center>
+            <div class = "form_section">
+              <form role = "form" class="submit_form">
+                <div class = "form_title">
+                  <center>
+                    IDOL SUBMIT
+                  </center>
+                </div>
+                <div class = "form-group">
+                    <label for="submission_style" class="input-lg">I want to...  </label>
+                    <select class="form-control input-lg" id="submission_style">
+                       <option>Edit</option>
+                       <option>Add</option>
+                    </select>
+                    <label for="submission_type" class="input-lg">A/n...  </label>
+                    <select class="form-control input-lg" id="submission_type">
+                       <option>Label</option>
+                       <option>Act</option>
+                       <option>Idol</option>
+                    </select>
+                    <div class = "searches">
+                      <label for = "search" class = "input-lg">Search For Company</label>
+                      <input type = "search" class = "form-control input-lg" autofocus="autofocus" id = "company_search" placeholder="🔍 Company Name">
+                      <label for = "search" class = "input-lg">Search For Act</label>
+                      <input type = "search" class = "form-control input-lg" autofocus="autofocus" id = "act_search" placeholder="🔍 Act Name">
+                      <label for = "search" class = "input-lg">Search For Idol</label>
+                      <input type = "search" class = "form-control input-lg" autofocus="autofocus" id = "idol_search" placeholder="🔍 Idol Name">
+                    </div>
+                </div>
+              </form>
+            </div>
         </div>
       </div>
     </div>
