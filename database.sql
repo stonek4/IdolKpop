@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS tv_shows(
 CREATE TABLE IF NOT EXISTS albums(
   album_id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
+  album_art VARCHAR(255),
   release_date DATE,
   chart_place INT(11),
   copies_sold INT(11),
@@ -41,6 +42,7 @@ CREATE TABLE IF NOT EXISTS songs(
   chart_place INT(11),
   copies_sold INT(11),
   album_id INT(11),
+  mv_link VARCHAR(255),
   FOREIGN KEY(album_id) REFERENCES albums(album_id),
   PRIMARY KEY(song_id)
 );
@@ -48,11 +50,6 @@ CREATE TABLE IF NOT EXISTS partners(
   partner_id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   PRIMARY KEY(partner_id)
-);
-CREATE TABLE IF NOT EXISTS owners(
-  owner_id INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(owner_id)
 );
 CREATE TABLE IF NOT EXISTS company_types(
   company_type_id INT(11) NOT NULL AUTO_INCREMENT,
@@ -69,11 +66,6 @@ CREATE TABLE IF NOT EXISTS blood_types(
   name VARCHAR(255) NOT NULL,
   PRIMARY KEY(blood_type_id)
 );
-CREATE TABLE IF NOT EXISTS managers(
-  manager_id INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(manager_id)
-);
 CREATE TABLE IF NOT EXISTS labels(
   label_id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
@@ -81,6 +73,7 @@ CREATE TABLE IF NOT EXISTS labels(
   korean_name VARCHAR(255),
   founded DATE,
   ended DATE,
+  owner VARCHAR(255),
   official_site VARCHAR(255),
   youtube_site VARCHAR(255),
   instagram_site VARCHAR(255),
@@ -90,6 +83,7 @@ CREATE TABLE IF NOT EXISTS labels(
   weibo_site VARCHAR(255),
   audition_site VARCHAR(255),
   wikipedia_site VARCHAR(255),
+  introduction_video VARCHAR(255),
   synopsis TEXT,
   house_number VARCHAR(255),
   dong VARCHAR(255),
@@ -113,6 +107,7 @@ CREATE TABLE IF NOT EXISTS acts(
   official_color VARCHAR(255),
   founded DATE,
   disbanded DATE,
+  manager VARCHAR(255),
   official_site VARCHAR(255),
   youtube_site VARCHAR(255),
   instagram_site VARCHAR(255),
@@ -147,6 +142,7 @@ CREATE TABLE IF NOT EXISTS idols(
   weibo_site VARCHAR(255),
   wikipedia_site VARCHAR(255),
   official_fan_site VARCHAR(255),
+  introduction_video VARCHAR(255),
   synopsis TEXT,
   rss_feed VARCHAR(255),
   gender_id INT(11),
@@ -154,19 +150,6 @@ CREATE TABLE IF NOT EXISTS idols(
   FOREIGN KEY(gender_id) REFERENCES gender_types(gender_type_id),
   FOREIGN KEY(blood_id) REFERENCES blood_types(blood_type_id),
   PRIMARY KEY(idol_id)
-);
-CREATE TABLE IF NOT EXISTS videos(
-  video_id INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255),
-  description TEXT,
-  link VARCHAR(255),
-  label_id INT(11),
-  act_id INT(11),
-  idol_id INT(11),
-  FOREIGN KEY(label_id) REFERENCES labels(label_id),
-  FOREIGN KEY(act_id) REFERENCES acts(act_id),
-  FOREIGN KEY(idol_id) REFERENCES idols(idol_id),
-  PRIMARY KEY(video_id)
 );
 CREATE TABLE IF NOT EXISTS photos(
   photo_id INT(11) NOT NULL AUTO_INCREMENT,
@@ -336,13 +319,6 @@ CREATE TABLE IF NOT EXISTS acts_genres(
   FOREIGN KEY(genre_id) REFERENCES genres(genre_id),
   CONSTRAINT pk_genres_acts PRIMARY KEY(genre_id, act_id)
 );
-CREATE TABLE IF NOT EXISTS acts_managers(
-  act_id INT(11) NOT NULL,
-  manager_id INT(11) NOT NULL,
-  FOREIGN KEY(act_id) REFERENCES acts(act_id),
-  FOREIGN KEY(manager_id) REFERENCES managers(manager_id),
-  CONSTRAINT pk_managers_acts PRIMARY KEY(manager_id, act_id)
-);
 CREATE TABLE IF NOT EXISTS labels_songs(
   label_id INT(11) NOT NULL,
   song_id INT(11) NOT NULL,
@@ -384,11 +360,4 @@ CREATE TABLE IF NOT EXISTS labels_projects(
   FOREIGN KEY(label_id) REFERENCES labels(label_id),
   FOREIGN KEY(project_id) REFERENCES projects(project_id),
   CONSTRAINT pk_projects_labels PRIMARY KEY(project_id, label_id)
-);
-CREATE TABLE IF NOT EXISTS labels_owners(
-  label_id INT(11) NOT NULL,
-  owner_id INT(11) NOT NULL,
-  FOREIGN KEY(label_id) REFERENCES labels(label_id),
-  FOREIGN KEY(owner_id) REFERENCES owners(owner_id),
-  CONSTRAINT pk_owners_labels PRIMARY KEY(owner_id, label_id)
 );
