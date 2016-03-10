@@ -78,6 +78,11 @@ html, body {
 	box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.70);
 	font-size:1em;
 }
+.required:after{
+   content:"*";
+   color:red;
+	 font-size:1.5em;
+}
 .form-control:focus::-webkit-input-placeholder { color:transparent; }
 .form-control:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 .form-control:focus::-moz-placeholder { color:transparent; } /* FF 19+ */

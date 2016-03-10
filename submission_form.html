@@ -30,30 +30,48 @@
                   </center>
                 </div>
                 <div class = "form-group">
-                    <label for="submission_style" class="input-lg submission_style">I want to...  </label>
-                    <select class="form-control input-lg submission_style" id = "this_sub_style" name = "sub_style">
+                    <label for="submission_style" class="input-lg submission_style required">I want to...  </label>
+                    <select class="form-control input-lg submission_style" id = "this_sub_style" name = "sub_style" autofocus="focus">
                        <option>Edit</option>
                        <option>Add</option>
                     </select>
-                    <label for="submission_type" class="input-lg submission_type">A/n...  </label>
+                    <label for="submission_type" class="input-lg submission_type required">A/n...  </label>
                     <select class="form-control input-lg submission_type" id = "this_sub_type" name = "sub_type">
                        <option>Label</option>
                        <option>Act</option>
                        <option>Idol</option>
                     </select>
                     <div class = "searches">
-                      <label for = "search" class = "input-lg">Search For Profile</label>
-                      <input type = "search" class = "form-control input-lg" id = "search_box" name = "search_box" placeholder="🔍 Profile Name to Edit">
+                      <label for = "search" class = "input-lg required">Search For Profile</label>
+                      <input type = "search" class = "form-control input-lg required" id = "search_box" name = "search_box" placeholder="🔍 Profile Name to Edit">
+                    </div>
+                    <div class = "genres">
+                      <div class  = "added_list">
+
+                      </div>
+                      <label for = "search" class = "input-lg">Add Genres for Act</label>
+                      <input type = "search" class = "form-control input-lg" id = "genre_search_box" name = "search_box" placeholder="🔍 Genres">
+                    </div>
+                    <div class = "discography">
+                      <label for = "text" class = "input-lg required">Album</label>
+                      <input type = "text" class = "form-control input-lg required" name = "name" id = "album_name"/>
+                      <label for = "date" class = "input-lg acts labels">Released</label>
+                      <input type = "date" class = "form-control input-lg" name = "release_date" placeholder = "1995-01-25" />
+                      <div class  = "added_list">
+
+                      </div>
+                      <label for = "text" class = "input-lg required">Add Song</label>
+                      <input type = "text" class = "form-control input-lg" name = "name" id = "song_name"/>
                     </div>
                     <div class = "submission">
-                      <label for = "search" class = "input-lg acts idols">Label</label>
-                      <input type = "search" class = "form-control input-lg acts idols" id = "label_search" name = "label" placeholder="🔍 Label Name">
+                      <label for = "search" class = "input-lg acts idols required">Label</label>
+                      <input type = "search" class = "form-control input-lg acts idols required" id = "label_search" name = "label" placeholder="🔍 Label Name">
 
-                      <label for = "search" class = "input-lg idols">Act</label>
-                      <input type = "search" class = "form-control input-lg idols" id = "act_search" name = "act" placeholder="🔍 Act Name">
+                      <label for = "search" class = "input-lg idols required">Act</label>
+                      <input type = "search" class = "form-control input-lg idols required" id = "act_search" name = "act" placeholder="🔍 Act Name">
 
-                      <label for = "text" class = "input-lg name">Name</label>
-                      <input type = "text" class = "form-control input-lg name" name = "name" />
+                      <label for = "text" class = "input-lg name required">Name</label>
+                      <input type = "text" class = "form-control input-lg name required" name = "name" />
 
                       <label for = "text" class = "input-lg labels">Full Name</label>
                       <input type = "text" class = "form-control input-lg labels" name = "full_name" />
@@ -79,14 +97,14 @@
                       <label for = "text" class = "input-lg all_types">Owner</label>
                       <input type = "text" class = "form-control input-lg labels" name = "owner" />
 
-                      <label for = "text" class = "input-lg all_types">Manager</label>
+                      <label for = "text" class = "input-lg acts">Manager</label>
                       <input type = "text" class = "form-control input-lg acts" name = "manager" />
 
                       <label for = "date" class = "input-lg acts">Disbanded</label>
                       <input type = "date" class = "form-control input-lg acts" name = "disbanded" placeholder = "1998-03-15" />
 
-                      <label for = "date" class = "input-lg idols">Died</label>
-                      <input type = "date" class = "form-control input-lg idols" name = "died" placeholder = "1998-03-15" />
+                      <label for = "date" class = "input-lg idols">Death</label>
+                      <input type = "date" class = "form-control input-lg idols" name = "death" placeholder = "1998-03-15" />
 
                       <label for = "text" class = "input-lg acts">Fandom Name</label>
                       <input type = "text" class = "form-control input-lg acts" name = "fandom_name">
@@ -126,7 +144,7 @@
 
                       <label for = "url" class = "input-lg all_types all_types">RSS Feed</label>
                       <input type = "url" class = "form-control input-lg all_types" name = "rss_feed" placeholder = "https://google.com/something.rss" />
-                      
+
                       <label for = "url" class = "input-lg all_types labels">Audition Site</label>
                       <input type = "url" class = "form-control input-lg labels" name = "audition_site" placeholder = "https://example.com/auditions" />
 
@@ -168,6 +186,7 @@
 
                       <label for="blood_type" class="input-lg idols">Blood Type</label>
                       <select class="form-control input-lg idols" name="blood_type">
+                         <option></option>
                          <option>O</option>
                          <option>A</option>
                          <option>B</option>
@@ -176,14 +195,13 @@
 
                       <label for="gender" class="input-lg acts idols">Gender</label>
                       <select class="form-control input-lg idols acts" name="gender">
+                         <option></option>
                          <option>Male</option>
                          <option>Female</option>
                          <option>Other</option>
                       </select>
-
                       <label for="synopsis" class="input-lg all_types">Synopsis</label>
                       <textarea class="form-control input-lg all_types" rows="5" name="synopsis"></textarea>
-
                       <input type="button" class="btn btn-lg submit_button all_types" id = "submit_button" value="SUBMIT!">
                     </div>
                 </div>
@@ -195,9 +213,12 @@
   </body>
 
 	<script>
+    var adding_act = false
     $(".searches").hide()
     $(".submission").children().hide()
     $(".submission_type").hide()
+    $(".genres").hide()
+    $(".discography").hide()
     $("select").val("")
     $("#this_sub_style").change(function(){
       if ($("#this_sub_style option:selected").text() != "Choose one"){
@@ -242,6 +263,26 @@
     });
     $('#submit_button').on('click', function (e) {
          e.defaultPrevented;
+         var required_filled = true;
+         $('.required:input:visible').each(function(){
+           if (!$(this).val())
+           {
+             $(this).css("background-color","#ffcccc")
+             $("html, body").animate({ scrollTop: 0 }, 500)
+             required_filled = false;
+           }
+           else{
+             $(this).css("background-color","#e6e6e6")
+           }
+         });
+         if (required_filled === false)
+         {
+           return;
+         }
+         if ($('#this_sub_type').val() === "act")
+         {
+           adding_act = true
+         }
          var ser_data = $('.submit_form :input:visible').serialize()
          console.log(ser_data)
          $.ajax({
@@ -256,6 +297,10 @@
          $(".submission").children().hide()
          $(".submission_type").hide()
          $("select").val("")
+         if (adding_act === true)
+         {
+           $(".genres").slideDown()
+         }
        });
 
   </script>

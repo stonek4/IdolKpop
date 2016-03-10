@@ -51,21 +51,6 @@ CREATE TABLE IF NOT EXISTS partners(
   name VARCHAR(255) NOT NULL,
   PRIMARY KEY(partner_id)
 );
-CREATE TABLE IF NOT EXISTS company_types(
-  company_type_id INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(company_type_id)
-);
-CREATE TABLE IF NOT EXISTS gender_types(
-  gender_type_id INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(gender_type_id)
-);
-CREATE TABLE IF NOT EXISTS blood_types(
-  blood_type_id INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(blood_type_id)
-);
 CREATE TABLE IF NOT EXISTS labels(
   label_id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
@@ -94,8 +79,7 @@ CREATE TABLE IF NOT EXISTS labels(
   rss_feed VARCHAR(255),
   revenue INT(11),
   net_income INT(11),
-  company_type_id INT(11),
-  FOREIGN KEY(company_type_id) REFERENCES company_types(company_type_id),
+  company_type VARCHAR(255),
   PRIMARY KEY(label_id)
 );
 CREATE TABLE IF NOT EXISTS acts(
@@ -119,8 +103,7 @@ CREATE TABLE IF NOT EXISTS acts(
   official_fan_site VARCHAR(255),
   synopsis TEXT,
   rss_feed VARCHAR(255),
-  gender_id INT(11),
-  FOREIGN KEY(gender_id) REFERENCES gender_types(gender_type_id),
+  gender VARCHAR(255),
   PRIMARY KEY(act_id)
 );
 CREATE TABLE IF NOT EXISTS idols(
@@ -145,10 +128,8 @@ CREATE TABLE IF NOT EXISTS idols(
   introduction_video VARCHAR(255),
   synopsis TEXT,
   rss_feed VARCHAR(255),
-  gender_id INT(11),
-  blood_id INT(11),
-  FOREIGN KEY(gender_id) REFERENCES gender_types(gender_type_id),
-  FOREIGN KEY(blood_id) REFERENCES blood_types(blood_type_id),
+  gender VARCHAR(255),
+  blood_type VARCHAR(255),
   PRIMARY KEY(idol_id)
 );
 CREATE TABLE IF NOT EXISTS photos(
