@@ -31,7 +31,7 @@
                 </div>
                 <div class = "form-group">
                     <label for="submission_style" class="input-lg submission_style required">I want to...  </label>
-                    <select class="form-control input-lg submission_style" id = "this_sub_style" name = "sub_style" autofocus="focus">
+                    <select class="form-control input-lg submission_style " id = "this_sub_style" name = "sub_style" autofocus="focus">
                        <option>Edit</option>
                        <option>Add</option>
                     </select>
@@ -41,10 +41,8 @@
                        <option>Act</option>
                        <option>Idol</option>
                     </select>
-                    <div class = "searches">
-                      <label for = "search" class = "input-lg required">Search For Profile</label>
-                      <input type = "search" class = "form-control input-lg required" id = "search_box" name = "search_box" placeholder="🔍 Profile Name to Edit">
-                    </div>
+                    <label for = "search" class = "input-lg required searches">Search For Profile</label>
+                    <input type = "search" class = "form-control input-lg required searches" id = "search_box" name = "search_box" placeholder="🔍 Profile Name to Edit">
                     <div class = "genres">
                       <div class  = "added_list">
 
@@ -63,145 +61,170 @@
                       <label for = "text" class = "input-lg required">Add Song</label>
                       <input type = "text" class = "form-control input-lg" name = "name" id = "song_name"/>
                     </div>
-                    <div class = "submission">
-                      <label for = "search" class = "input-lg acts idols required">Label</label>
-                      <input type = "search" class = "form-control input-lg acts idols required" id = "label_search" name = "label" placeholder="🔍 Label Name">
+                    <div class = "submission panel-group" id = "accordion">
+                      <div class = "basic_info panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class = "panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse1" >Basic Information</h3>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                          <label for = "search" class = "input-lg acts idols required">Label</label>
+                          <input type = "search" class = "form-control input-lg acts idols required" id = "label_search" name = "label" placeholder="🔍 Label Name">
 
-                      <label for = "search" class = "input-lg idols required">Act</label>
-                      <input type = "search" class = "form-control input-lg idols required" id = "act_search" name = "act" placeholder="🔍 Act Name">
+                          <label for = "search" class = "input-lg idols required">Act</label>
+                          <input type = "search" class = "form-control input-lg idols required" id = "act_search" name = "act" placeholder="🔍 Act Name">
 
-                      <label for = "text" class = "input-lg name required">Name</label>
-                      <input type = "text" class = "form-control input-lg name required" name = "name" />
+                          <label for = "text" class = "input-lg name all_types required">Name</label>
+                          <input type = "text" class = "form-control input-lg name all_types required" name = "name" />
 
-                      <label for = "text" class = "input-lg labels">Full Name</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "full_name" />
+                          <label for = "text" class = "input-lg labels">Full Name</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "full_name" />
 
-                      <label for = "text" class = "input-lg acts">Nickname</label>
-                      <input type = "text" class = "form-control input-lg acts" name = "nickname" />
+                          <label for = "text" class = "input-lg acts">Nickname</label>
+                          <input type = "text" class = "form-control input-lg acts" name = "nickname" />
 
-                      <label for = "text" class = "input-lg idols">Stage Name</label>
-                      <input type = "text" class = "form-control input-lg idols" name = "stage_name" />
+                          <label for = "text" class = "input-lg idols">Stage Name</label>
+                          <input type = "text" class = "form-control input-lg idols" name = "stage_name" />
 
-                      <label for = "text" class = "input-lg all_types">Korean Name</label>
-                      <input type = "text" class = "form-control input-lg all_types" name = "korean_name" placeholder = "한국어" />
+                          <label for = "text" class = "input-lg all_types">Korean Name</label>
+                          <input type = "text" class = "form-control input-lg all_types" name = "korean_name" placeholder = "한국어" />
 
-                      <label for = "date" class = "input-lg acts labels">Founded</label>
-                      <input type = "date" class = "form-control input-lg labels acts" name = "founded" placeholder = "1995-01-25" />
+                          <label for = "date" class = "input-lg acts labels">Founded</label>
+                          <input type = "date" class = "form-control input-lg labels acts" name = "founded" placeholder = "1995-01-25" />
 
-                      <label for = "date" class = "input-lg idols">Birthday</label>
-                      <input type = "date" class = "form-control input-lg idols" name = "birthday" placeholder = "1995-01-25" />
+                          <label for = "date" class = "input-lg idols">Birthday</label>
+                          <input type = "date" class = "form-control input-lg idols" name = "birthday" placeholder = "1995-01-25" />
 
-                      <label for = "date" class = "input-lg labels">Ended</label>
-                      <input type = "date" class = "form-control input-lg labels" name = "ended" placeholder = "1998-03-15" />
+                          <label for = "date" class = "input-lg labels">Ended</label>
+                          <input type = "date" class = "form-control input-lg labels" name = "ended" placeholder = "1998-03-15" />
 
-                      <label for = "text" class = "input-lg all_types">Owner</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "owner" />
+                          <label for = "text" class = "input-lg labels">Owner</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "owner" />
 
-                      <label for = "text" class = "input-lg acts">Manager</label>
-                      <input type = "text" class = "form-control input-lg acts" name = "manager" />
+                          <label for = "text" class = "input-lg acts">Manager</label>
+                          <input type = "text" class = "form-control input-lg acts" name = "manager" />
 
-                      <label for = "date" class = "input-lg acts">Disbanded</label>
-                      <input type = "date" class = "form-control input-lg acts" name = "disbanded" placeholder = "1998-03-15" />
+                          <label for = "date" class = "input-lg acts">Disbanded</label>
+                          <input type = "date" class = "form-control input-lg acts" name = "disbanded" placeholder = "1998-03-15" />
 
-                      <label for = "date" class = "input-lg idols">Death</label>
-                      <input type = "date" class = "form-control input-lg idols" name = "death" placeholder = "1998-03-15" />
+                          <label for = "date" class = "input-lg idols">Death</label>
+                          <input type = "date" class = "form-control input-lg idols" name = "death" placeholder = "1998-03-15" />
 
-                      <label for = "text" class = "input-lg acts">Fandom Name</label>
-                      <input type = "text" class = "form-control input-lg acts" name = "fandom_name">
+                          <label for = "text" class = "input-lg acts">Fandom Name</label>
+                          <input type = "text" class = "form-control input-lg acts" name = "fandom_name">
 
-                      <label for = "text" class = "input-lg acts">Official Color</label>
-                      <input type = "text" class = "form-control input-lg acts" name = "official_color">
+                          <label for = "text" class = "input-lg idols">Group Role</label>
+                          <input type = "text" class = "form-control input-lg idols" name = "group_role" placeholder = "Lead Singer">
+                        </div>
+                      </div>
+                      <div class = "links panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class = "panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Websites/Links</h3>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                          <label for = "url" class = "input-lg all_types all_types">Official Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "official_site" placeholder = "https://example.com" />
 
-                      <label for = "text" class = "input-lg idols">Birth City</label>
-                      <input type = "text" class = "form-control input-lg idols" name = "birth_city" placeholder = "Seoul">
+                          <label for = "url" class = "input-lg all_types all_types">Youtube Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "youtube_site" placeholder = "https://youtube.com/user/username" />
 
-                      <label for = "text" class = "input-lg idols">Birth Country</label>
-                      <input type = "text" class = "form-control input-lg idols" name = "birth_country" placeholder = "South Korea">
+                          <label for = "url" class = "input-lg all_types all_types">Instagram Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "instagram_site" placeholder = "https://www.instagram.com/username" />
 
-                      <label for = "text" class = "input-lg idols">Group Role</label>
-                      <input type = "text" class = "form-control input-lg idols" name = "group_role" placeholder = "Lead Singer">
+                          <label for = "url" class = "input-lg all_types all_types">Twitter Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "twitter_site" placeholder = "https://www.twitter.com/@username" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Official Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "official_site" placeholder = "https://example.com" />
+                          <label for = "url" class = "input-lg all_types all_types">Facebook Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "facebook_site" placeholder = "https://www.facebook.com/username" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Youtube Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "youtube_site" placeholder = "https://youtube.com/user/username" />
+                          <label for = "url" class = "input-lg all_types all_types">Weibo Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "weibo_site" placeholder = "https://www.weibo.com/username" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Instagram Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "instagram_site" placeholder = "https://www.instagram.com/username" />
+                          <label for = "url" class = "input-lg all_types all_types">Daum Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "daum_site" placeholder = "https://daum.com/username" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Twitter Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "twitter_site" placeholder = "https://www.twitter.com/@username" />
+                          <label for = "url" class = "input-lg all_types all_types">RSS Feed</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "rss_feed" placeholder = "https://google.com/something.rss" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Facebook Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "facebook_site" placeholder = "https://www.facebook.com/username" />
+                          <label for = "url" class = "input-lg labels labels">Audition Site</label>
+                          <input type = "url" class = "form-control input-lg labels" name = "audition_site" placeholder = "https://example.com/auditions" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Weibo Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "weibo_site" placeholder = "https://www.weibo.com/username" />
+                          <label for = "url" class = "input-lg all_types all_types">Wikipedia Site</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "wikipedia_site" placeholder = "https://en.wikipedia.org/wiki/title" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Daum Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "daum_site" placeholder = "https://daum.com/username" />
+                          <label for = "url" class = "input-lg all_types all_types">Introduction Video</label>
+                          <input type = "url" class = "form-control input-lg all_types" name = "introduction_video" placeholder = "https://youtube.com/link" />
+                        </div>
+                      </div>
+                      <div class = "location panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class = "panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse3" >Location</h3>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                          <label for = "text" class = "input-lg idols">Birth City</label>
+                          <input type = "text" class = "form-control input-lg idols" name = "birth_city" placeholder = "Seoul">
 
-                      <label for = "url" class = "input-lg all_types all_types">RSS Feed</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "rss_feed" placeholder = "https://google.com/something.rss" />
+                          <label for = "text" class = "input-lg idols">Birth Country</label>
+                          <input type = "text" class = "form-control input-lg idols" name = "birth_country" placeholder = "South Korea">
 
-                      <label for = "url" class = "input-lg all_types labels">Audition Site</label>
-                      <input type = "url" class = "form-control input-lg labels" name = "audition_site" placeholder = "https://example.com/auditions" />
+                          <label for = "text" class = "input-lg labels">Building Number</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "house_number" placeholder = "30-16" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Wikipedia Site</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "wikipedia_site" placeholder = "https://en.wikipedia.org/wiki/title" />
+                          <label for = "text" class = "input-lg labels">Dong</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "dong" placeholder = "Nonhyeon-dong" />
 
-                      <label for = "url" class = "input-lg all_types all_types">Introduction Video</label>
-                      <input type = "url" class = "form-control input-lg all_types" name = "introduction_video" placeholder = "https://youtube.com/link" />
+                          <label for = "text" class = "input-lg labels">City</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "city" placeholder = "Gangnam-gu" />
 
-                      <label for = "text" class = "input-lg labels">Building Number</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "house_number" placeholder = "30-16" />
+                          <label for = "text" class = "input-lg labels">Metropolitan</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "metropolitan" placeholder = "Seoul" />
 
-                      <label for = "text" class = "input-lg labels">Dong</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "dong" placeholder = "Nonhyeon-dong" />
+                          <label for = "text" class = "input-lg labels">Country</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "country" placeholder = "South Korea" />
+                        </div>
+                      </div>
+                      <div class = "other_info panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class = "panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse4" >Other Information</h3>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                          <label for = "text" class = "input-lg acts">Official Color</label>
+                          <input type = "text" class = "form-control input-lg acts" name = "official_color">
 
-                      <label for = "text" class = "input-lg labels">City</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "city" placeholder = "Gangnam-gu" />
+                          <label for = "text" class = "input-lg labels">Slogan</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "slogan" />
 
-                      <label for = "text" class = "input-lg labels">Metropolitan</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "metropolitan" placeholder = "Seoul" />
+                          <label for="company_type" class="input-lg labels">Company Type</label>
+                          <select class="form-control input-lg labels" name="company_type">
+                             <option>Public</option>
+                             <option>Private</option>
+                          </select>
 
-                      <label for = "text" class = "input-lg labels">Country</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "country" placeholder = "South Korea" />
+                          <label for = "text" class = "input-lg labels">Revenue ($USD)</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "revenue" placeholder = "1000000"/>
 
-                      <label for = "text" class = "input-lg labels">Slogan</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "slogan" />
+                          <label for = "text" class = "input-lg labels">Net Income ($USD)</label>
+                          <input type = "text" class = "form-control input-lg labels" name = "net_income" placeholder = "500000" />
 
-                      <label for="company_type" class="input-lg labels">Company Type</label>
-                      <select class="form-control input-lg labels" name="company_type">
-                         <option>Public</option>
-                         <option>Private</option>
-                      </select>
+                          <label for="blood_type" class="input-lg idols">Blood Type</label>
+                          <select class="form-control input-lg idols" name="blood_type">
+                             <option></option>
+                             <option>O</option>
+                             <option>A</option>
+                             <option>B</option>
+                             <option>AB</option>
+                          </select>
 
-                      <label for = "text" class = "input-lg labels">Revenue ($USD)</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "revenue" placeholder = "1000000"/>
-
-                      <label for = "text" class = "input-lg labels">Net Income ($USD)</label>
-                      <input type = "text" class = "form-control input-lg labels" name = "net_income" placeholder = "500000" />
-
-                      <label for="blood_type" class="input-lg idols">Blood Type</label>
-                      <select class="form-control input-lg idols" name="blood_type">
-                         <option></option>
-                         <option>O</option>
-                         <option>A</option>
-                         <option>B</option>
-                         <option>AB</option>
-                      </select>
-
-                      <label for="gender" class="input-lg acts idols">Gender</label>
-                      <select class="form-control input-lg idols acts" name="gender">
-                         <option></option>
-                         <option>Male</option>
-                         <option>Female</option>
-                         <option>Other</option>
-                      </select>
-                      <label for="synopsis" class="input-lg all_types">Synopsis</label>
-                      <textarea class="form-control input-lg all_types" rows="5" name="synopsis"></textarea>
+                          <label for="gender" class="input-lg acts idols">Gender</label>
+                          <select class="form-control input-lg idols acts" name="gender">
+                             <option></option>
+                             <option>Male</option>
+                             <option>Female</option>
+                             <option>Other</option>
+                          </select>
+                          <label for="synopsis" class="input-lg all_types">Synopsis</label>
+                          <textarea class="form-control input-lg all_types" rows="5" name="synopsis"></textarea>
+                        </div>
+                      </div>
                       <input type="button" class="btn btn-lg submit_button all_types" id = "submit_button" value="SUBMIT!">
                     </div>
                 </div>
@@ -211,18 +234,17 @@
       </div>
     </div>
   </body>
-
 	<script>
     var adding_act = false
     $(".searches").hide()
-    $(".submission").children().hide()
+    $(".submission").find('.panel').hide()
     $(".submission_type").hide()
     $(".genres").hide()
     $(".discography").hide()
     $("select").val("")
     $("#this_sub_style").change(function(){
       if ($("#this_sub_style option:selected").text() != "Choose one"){
-        $(".submission").children().slideUp()
+        $(".submission").find('.panel').slideUp()
         $("#this_sub_type").val("")
         $(".searches").slideUp()
         $(".submission_type").slideDown()
@@ -235,22 +257,23 @@
     });
     $("#this_sub_type").change(function(){
       if ($("#this_sub_type option:selected").text() != "Choose one"){
-        $(".submission").children().slideUp()
+        $(".submission").find('.panel').slideDown()
         if ($("#this_sub_style option:selected").text() === "Edit"){
           $(".searches").slideDown()
         }
         else{
           $('.name').slideDown()
         }
-        $('.submission').children('.all_types').slideDown();
+        $('.submission').find('.collapse').children().slideUp()
+        $('.submission').find('.panel').find('.all_types').slideDown();
         if ($("#this_sub_type option:selected").text() === "Idol"){
-          $('.submission').children('.idols').slideDown();
+          $('.submission').find('.panel').find('.idols').slideDown();
         }
         if ($("#this_sub_type option:selected").text() === "Act"){
-          $('.submission').children('.acts').slideDown();
+          $('.submission').find('.panel').find('.acts').slideDown();
         }
         if ($("#this_sub_type option:selected").text() === "Label"){
-          $('.submission').children('.labels').slideDown();
+          $('.submission').find('.panel').find('.labels').slideDown();
         }
       }
       else{
@@ -283,7 +306,16 @@
          {
            adding_act = true
          }
-         var ser_data = $('.submit_form :input:visible').serialize()
+         var ser_data = ''
+         if ($("#this_sub_type option:selected").text() === "Idol"){
+           var ser_data = $('.submit_form').find('.all_types, .idols').serialize()
+         }
+         if ($("#this_sub_type option:selected").text() === "Act"){
+           var ser_data = $('.submit_form').find('.all_types, .acts').serialize()
+         }
+         if ($("#this_sub_type option:selected").text() === "Label"){
+           var ser_data = $('.submit_form').find('.all_types, .labels').serialize()
+         }
          console.log(ser_data)
          $.ajax({
            type: 'post',
