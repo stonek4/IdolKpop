@@ -86,6 +86,36 @@ html, body {
    color:red;
 	 font-size:1.5em;
 }
+.panel-default > .panel-heading{
+	height:auto;
+	color:white;
+	background-color:#333333;
+	border-radius: 0px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+.panel-default > .panel-heading:hover{
+	color:#cccccc;
+}
+h3.panel-title{
+	font-size:1.75em;
+	margin:auto;
+}
+h3.panel-title:hover{
+	cursor: context-menu;
+}
+option{
+	height:auto;
+	font-size:1.5em;
+	box-sizing:border-box;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+}
 .form-control:focus::-webkit-input-placeholder { color:transparent; }
 .form-control:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 .form-control:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
