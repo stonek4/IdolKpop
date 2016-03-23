@@ -333,6 +333,10 @@
     $('.submit_form').on('submit', function(e){
       e.defaultPrevented;
     });
+    $('.panel').on('click', function(){
+      console.log("test");
+      $("html, body").animate({ scrollTop: 285 }, 500)
+    });
     $('#submit_button').on('click', function (e) {
          e.defaultPrevented;
          var required_filled = true;
