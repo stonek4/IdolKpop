@@ -126,4 +126,12 @@ option{
 	margin-bottom: 20px;
 	background-color: #0099ff;
 	position:absolute;
+	float:left;
+}
+
+.continue_button{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #0099ff;
+	float:right;
 }

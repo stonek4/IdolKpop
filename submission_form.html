@@ -43,6 +43,34 @@
                     </select>
                     <label for = "search" class = "input-lg required searches">Search For Profile</label>
                     <input type = "search" class = "form-control input-lg required searches" id = "search_box" name = "search_box" placeholder="🔍 Profile Name to Edit">
+                    <div class = "history">
+                      <div class  = "added_list">
+
+                      </div>
+                      <label for = "search" class = "input-lg acts">Former Label</label>
+                      <input type = "search" class = "form-control input-lg acts" id = "former_label_search" name = "former_label" placeholder="🔍 Label Name">
+
+                      <label for = "search" class = "input-lg idols">Former Act</label>
+                      <input type = "search" class = "form-control input-lg idols" id = "former_act_search" name = "former_act" placeholder="🔍 Act Name">
+
+                      <label for = "date" class = "input-lg acts idols">Date Joined Most Current</label>
+                      <input type = "date" class = "form-control input-lg idols acts" name = "joined_current" placeholder = "1995-01-25" />
+
+                      <label for = "date" class = "input-lg acts idols">Date Left Most Current</label>
+                      <input type = "date" class = "form-control input-lg idols acts" name = "left_current" placeholder = "1995-01-25" />
+
+                      <label for = "search" class = "input-lg labels">Former Parent Label</label>
+                      <input type = "search" class = "form-control input-lg labels" id = "former_parent_label_search" name = "parent_label" placeholder="🔍 Label Name">
+
+                      <label for = "search" class = "input-lg acts">Former Parent Act</label>
+                      <input type = "search" class = "form-control input-lg acts" id = "former_parent_act_search" name = "parent_act" placeholder="🔍 Act Name">
+
+                      <label for = "date" class = "input-lg acts labels">Date Joined Current Parent</label>
+                      <input type = "date" class = "form-control input-lg labels acts" name = "joined_parent" placeholder = "1995-01-25" />
+
+                      <label for = "date" class = "input-lg acts labels">Date Left Current Parent</label>
+                      <input type = "date" class = "form-control input-lg labels acts" name = "left_parent" placeholder = "1995-01-25" />
+                    </div>
                     <div class = "genres">
                       <div class  = "added_list">
 
@@ -67,12 +95,6 @@
                           <h3 class = "panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse1" >Basic Information</h3>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse">
-                          <label for = "search" class = "input-lg acts idols required">Label</label>
-                          <input type = "search" class = "form-control input-lg acts idols required" id = "label_search" name = "label" placeholder="🔍 Label Name">
-
-                          <label for = "search" class = "input-lg idols required">Act</label>
-                          <input type = "search" class = "form-control input-lg idols required" id = "act_search" name = "act" placeholder="🔍 Act Name">
-
                           <label for = "text" class = "input-lg name all_types required">Name</label>
                           <input type = "text" class = "form-control input-lg name all_types required" name = "name" />
 
@@ -87,6 +109,30 @@
 
                           <label for = "text" class = "input-lg all_types">Korean Name</label>
                           <input type = "text" class = "form-control input-lg all_types" name = "korean_name" placeholder = "한국어" />
+
+                          <label for = "search" class = "input-lg acts required">Most Current Label</label>
+                          <input type = "search" class = "form-control input-lg acts required" id = "label_search" name = "label" placeholder="🔍 Label Name">
+
+                          <label for = "search" class = "input-lg idols required">Most Current Act</label>
+                          <input type = "search" class = "form-control input-lg idols required" id = "act_search" name = "act" placeholder="🔍 Act Name">
+
+                          <label for = "date" class = "input-lg idols acts">Date Joined Most Current</label>
+                          <input type = "date" class = "form-control input-lg idols acts" name = "joined_current" placeholder = "1995-01-25" />
+
+                          <label for = "date" class = "input-lg acts idols">Date Left Most Current</label>
+                          <input type = "date" class = "form-control input-lg idols acts" name = "left_current" placeholder = "1995-01-25" />
+
+                          <label for = "search" class = "input-lg labels">Most Current Parent Label</label>
+                          <input type = "search" class = "form-control input-lg labels" id = "parent_label_search" name = "parent_label" placeholder="🔍 Label Name">
+
+                          <label for = "search" class = "input-lg acts">Most Current Parent Act</label>
+                          <input type = "search" class = "form-control input-lg acts" id = "parent_act_search" name = "parent_act" placeholder="🔍 Act Name">
+
+                          <label for = "date" class = "input-lg acts labels">Date Joined Current Parent</label>
+                          <input type = "date" class = "form-control input-lg labels acts" name = "joined_parent" placeholder = "1995-01-25" />
+
+                          <label for = "date" class = "input-lg acts labels">Date Left Current Parent</label>
+                          <input type = "date" class = "form-control input-lg labels acts" name = "left_parent" placeholder = "1995-01-25" />
 
                           <label for = "date" class = "input-lg acts labels">Founded</label>
                           <input type = "date" class = "form-control input-lg labels acts" name = "founded" placeholder = "1995-01-25" />
@@ -226,6 +272,7 @@
                         </div>
                       </div>
                       <input type="button" class="btn btn-lg submit_button all_types" id = "submit_button" value="SUBMIT!">
+                      <input type="button" class="btn btn-lg continue_button all_types" id = "continue_button" value="CONTINUE">
                     </div>
                 </div>
               </form>
@@ -236,9 +283,11 @@
   </body>
 	<script>
     var adding_act = false
+    $("#continue_button").hide()
     $(".searches").hide()
     $(".submission").find('.panel').hide()
     $(".submission_type").hide()
+    $(".history").hide()
     $(".genres").hide()
     $(".discography").hide()
     $("select").val("")
